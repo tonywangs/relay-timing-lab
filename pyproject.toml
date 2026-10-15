@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relay-timing-lab"
+version = "1.0.0"
+description = "Offline synthetic relay timing and cost experiment"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+relay-timing-lab = "relay_timing_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

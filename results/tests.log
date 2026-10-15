@@ -1,0 +1,26 @@
+test_budget_cleanup (test_cli.CLITests.test_budget_cleanup) ... ok
+test_collision_directory_file_and_symlink (test_cli.CLITests.test_collision_directory_file_and_symlink) ... ok
+test_deterministic_replay_inputs_unchanged_manifest (test_cli.CLITests.test_deterministic_replay_inputs_unchanged_manifest) ... ok
+test_failure_cleanup (test_cli.CLITests.test_failure_cleanup) ... ok
+test_freeze_mismatch (test_cli.CLITests.test_freeze_mismatch) ... ok
+test_input_mutation_detected (test_cli.CLITests.test_input_mutation_detected) ... ok
+test_malformed_and_limits (test_cli.CLITests.test_malformed_and_limits) ... ok
+test_signal_cleanup_real_subprocess (test_cli.CLITests.test_signal_cleanup_real_subprocess) ... ok
+test_controls_and_policies_share_input_accounting (test_experiment.ExperimentTests.test_controls_and_policies_share_input_accounting) ... ok
+test_paired_intervals_resample_run_differences (test_experiment.ExperimentTests.test_paired_intervals_resample_run_differences) ... ok
+test_report_escapes_script_delimiters_and_is_deterministic (test_experiment.ExperimentTests.test_report_escapes_script_delimiters_and_is_deterministic) ... ok
+test_300_seeded_cases_all_policies_and_metrics (test_model.OracleTests.test_300_seeded_cases_all_policies_and_metrics) ... ok
+test_300_seeded_matching_and_ties_by_enumeration (test_model.OracleTests.test_300_seeded_matching_and_ties_by_enumeration) ... ok
+test_accounting_rejects_duplicates (test_model.OracleTests.test_accounting_rejects_duplicates) ... ok
+test_bootstrap_independent_calculation (test_model.OracleTests.test_bootstrap_independent_calculation) ... ok
+test_causal_lag_search_recovers_shift (test_model.OracleTests.test_causal_lag_search_recovers_shift) ... ok
+test_exact_boundary_and_drop_before_service (test_model.OracleTests.test_exact_boundary_and_drop_before_service) ... ok
+test_fixed_padding_independent_of_trace (test_model.OracleTests.test_fixed_padding_independent_of_trace) ... ok
+test_generator_replay_and_nested_candidates (test_model.OracleTests.test_generator_replay_and_nested_candidates) ... ok
+test_invalid_trace_and_settings (test_model.OracleTests.test_invalid_trace_and_settings) ... ok
+test_scores_exact_and_label_free (test_model.OracleTests.test_scores_exact_and_label_free) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.417s
+
+OK
