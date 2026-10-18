@@ -154,3 +154,47 @@ created by that invocation. SIGKILL/power loss can leave incomplete outputs;
 check for both manifest and runtime metadata. The 30-minute budget and explicit
 workload caps prevent unbounded experiments. No scheduling or publication is
 performed by this project.
+
+## Observer clock study
+
+The separately frozen [clock experiment](docs/clock-protocol.md) compares the
+historical matcher with a bounded affine alignment baseline under synchronized,
+offset-only and offset-plus-drift observations. Historical defaults and artifacts
+are retained. See [clock results](docs/clock-results.md) for measurements and limits.
+
+Reproduce the complete final clock evaluation offline and verify every
+deterministic artifact byte-for-byte:
+
+```sh
+python3 scripts/reproduce_clock.py
+```
+
+Open `results/clock-evaluation/report.html` directly in a browser. Clock condition
+and matcher filters work offline. The installed package supports the same run:
+
+```sh
+python3 -m relay_timing_lab.clock run \
+  --config experiment/clock/protocol.json \
+  --freeze experiment/clock/freeze.json --output /tmp/my-clock-evaluation
+```
+
+The output must not exist; its parent must exist. Each run has a 30-minute CPU
+and wall limit. A POSIX Python 3.11+ environment is required; there are no runtime
+dependencies beyond the standard library. Real timing samples are separate from
+the deterministic manifest. `scripts/check_clock_evidence.py` independently checks
+observations, score witnesses, accounting and bootstrap summaries. Tests include
+300 seeded small-case alignment oracles and CLI cancellation/cleanup checks.
+
+Optional validation uses Playwright 1.56.1 / Chromium 141 and an offline wheelhouse
+containing pip 25.3, setuptools 80.9.0 and wheel 0.45.1:
+
+```sh
+env NODE_PATH=/tmp/relay-browser/node_modules \
+  PLAYWRIGHT_BROWSERS_PATH=/tmp/relay-browsers \
+  node scripts/check_clock_browser.cjs results/clock-evaluation/report.html
+python3 scripts/verify_clock_install.py --wheelhouse /tmp/relay-wheelhouse
+```
+
+`clock_development.py` records the predeclared grid-selection procedure; it is a
+one-time artifact producer and refuses to overwrite saved development outputs.
+Use the reproduction command above for an already populated checkout.
