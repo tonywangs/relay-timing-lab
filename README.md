@@ -1,5 +1,23 @@
 # Relay timing lab
 
+## Local encrypted messaging prototype
+
+Run three separate peer processes and verify six messages over actual loopback
+TCP connections with mutually authenticated TLS 1.3:
+
+```sh
+python3 scripts/demo_peers.py
+```
+
+Requires Python 3.11+ with TLS 1.3 support and the `openssl` executable (tested
+with OpenSSL 3.0.13 on Linux). No downloads, accounts, or services are needed.
+The terminal demo shows each message, delivery verification, and peer process
+IDs. Fresh disposable keys are generated locally and deleted on normal exit.
+See [setup, protocol, threat model, and integration tests](docs/peers.md).
+This bounded prototype does not provide anonymity or Tor-equivalent security.
+
+## Offline timing experiments
+
 An offline, reproducible experiment measuring how three relay schedules affect
 synthetic flow matching, delivery delay, and transmitted bytes. It includes a
 label-free matcher, full event accounting, paired uncertainty, an interactive
